@@ -1,10 +1,10 @@
 #include <iostream>
-#include <string>
+
 using namespace std;
 
 int main() {
-    int year;
-    cin >> year;
-    cout << year;
-    return 0;
+    int age = 99;
+    int wt = 345;
+    int ht = 67;
+    cout << age << endl << wt << endl << ht << endl;
 }
