@@ -49,6 +49,10 @@ int main() {
   */
 
   // code here for PART TWO
+  for (int c = 0; c < 110; c += 10) {
+    int fah = c * 1.8 + 32;
+    cout << c << " degrees Celcius is " << fah << " Fahrenheit\n";
+  }
 
   /* PART THREE: Convert this Python code to C++:
   sum = 0
