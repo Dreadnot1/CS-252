@@ -11,6 +11,8 @@ int main() {
   int iter;
   int step;
   int current = 0;
+  int sum = 0;
+  int entry = 1;
 
   /* PART ONE: Convert this Python code to C++:
 
@@ -64,6 +66,13 @@ int main() {
   */
 
   // code here for PART THREE
+  while (entry != 0) {
+    cout << "Enter an integer to sum, 0 to quit: ";
+    cin >> entry;
+    sum += entry;
+  }
+
+  cout << "The sum is " << sum << "." << endl;
 
   return 0;
 }
