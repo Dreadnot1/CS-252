@@ -11,7 +11,8 @@ class Student {
         int credits;
 };
 
-//Structs are similar to classes but members are public by default
+/* Structs are similar to classes but members are public by default
+instead of private */
 struct Person {
     string eye_color;
     string hair;
@@ -31,15 +32,13 @@ int main() {
     if (test_case) {
         cout << "True\n";
     } else {
-        // \n is an escape sequence
+        // "\n" is an escape sequence
         cout << "False\n";
     }
 
-    /* Step values can be used to adjust the increments
-    Format: start, continue, step 
-    Some combined assignment operators: +=, -=
-    C++ has ++ increment operator, -- decrement operator
-    Has known number of iterations */
+    /* Format: start, continue, step
+    Has known number of iterations 
+    Step values can be used to adjust the increments */
     for (int i = 0; i < 5; i++) {
         cout << i << endl;
     }
@@ -49,7 +48,7 @@ int main() {
     int scores[3] = {70, 80, 90};
     cout << scores[0];
 
-    /*Unknown # of iterations
+    /* Unknown # of iterations
     Checks for a condition
     Known as a preloop test or pre-test */
     while (student_count <= 18) {
@@ -64,8 +63,9 @@ int main() {
         cout << "[2] Subtraction\n";
         cout << "[3] Quit   Choice --> ";
         cin >> choice;
-        //Choice is an integer literal, a magic number: use a constant instead
-    } while (choice != 3);
+    } while (choice != 3); 
+    /* choice is an integer literal and, in this context, a magic number
+    use a constant instead */
 
     return 0;
 }
@@ -77,7 +77,8 @@ input
 processing
 output */
 
-//Conventions: about 80 characters per line
-
-/* Relational expressions: <, >, ==, <=, >=
-Compares two variables using relational operators */
+/* OPERATORS AND EXPRESSIONS
+Relational expressions: <, >, ==, <=, >=
+Compares two variables using relational operators
+Combined assignment operators: +=, -=
+++ increment operator, -- decrement operator */
