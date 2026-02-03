@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int MIN = 1, MAX = 6, COLUMNS = 15;
+const int MIN = 1, MAX = 6, ROLLS = 150, COLUMNS = 15;
 
 int main() {
     srand(time(0));
@@ -12,7 +12,7 @@ int main() {
     cout << "---Dice Rolls---" << endl;
 
     // Logic for the counter variables
-    for (int i = 0; i < 150; i++) {
+    for (int i = 0; i < ROLLS; i++) {
         roll = rand() % (MAX-MIN+1) + MIN;
         if (roll == 1) {
             ones += 1;
@@ -37,7 +37,7 @@ int main() {
 
     // Display for the dice roll stats
     cout << endl << "---Statistics---" << endl;
-    cout << "Ones: " << ones << endl;
+    cout << "Ones: " << ones << " " << "(" << ones / ROLLS << "%" << ")" << endl;
     cout << "Twos: " << twos << endl;
     cout << "Threes: " << threes << endl;
     cout << "Fours: " << fours << endl;
