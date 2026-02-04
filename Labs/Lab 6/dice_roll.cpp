@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -7,9 +8,9 @@ const int MIN = 1, MAX = 6, ROLLS = 150, COLUMNS = 15;
 int main() {
     srand(time(0));
     int roll;
-    int ones = 0, twos = 0, threes = 0, fours = 0, fives = 0, sixes = 0;
+    float ones = 0, twos = 0, threes = 0, fours = 0, fives = 0, sixes = 0;
     
-    cout << "---Dice Rolls---" << endl;
+    cout << "---------Dice Rolls---------" << endl;
 
     // Logic for the counter variables
     for (int i = 0; i < ROLLS; i++) {
@@ -35,14 +36,23 @@ int main() {
         }
     }
 
-    // Display for the dice roll stats
-    cout << endl << "---Statistics---" << endl;
-    cout << "Ones: " << ones << " " << "(" << ones / ROLLS << "%" << ")" << endl;
-    cout << "Twos: " << twos << endl;
-    cout << "Threes: " << threes << endl;
-    cout << "Fours: " << fours << endl;
-    cout << "Fives: " << fives << endl;
-    cout << "Sixes: " << sixes << endl;
+    // Calculating percentages for later display
+    float dis_one = ones / ROLLS * 100;
+    float dis_two = twos / ROLLS * 100;
+    float dis_three = threes / ROLLS * 100;
+    float dis_four = fours / ROLLS * 100;
+    float dis_five = fives / ROLLS * 100;
+    float dis_six = sixes / ROLLS * 100;
+
+    // Display for the dice roll statistics
+    cout << endl << "----Statistics----" << endl;
+    cout << "Ones: " << ones << " " << "(" << dis_one << "%" << ")" << endl;
+    cout << "Twos: " << twos << " " << "(" << dis_two << "%" << ")" << endl;
+    cout << "Threes: " << threes << " " << "(" << dis_three << "%" << ")" << endl;
+    cout << "Fours: " << fours << " " << "(" << dis_four << "%" << ")" << endl;
+    cout << "Fives: " << fives << " " << "(" << dis_five << "%" << ")" << endl;
+    cout << "Sixes: " << sixes << " " << "(" << dis_six << "%" << ")" << endl;
+    cout << endl;
 
     return 0;
 }
