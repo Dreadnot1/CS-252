@@ -101,9 +101,7 @@ public:
     
     // recruitHenchmen() is a setter for the henchmenCount attribute
     void recruitHenchmen(int add) {
-        cout << "BEFORE: " << henchmenCount << endl;
         henchmenCount += add;
-        cout << "AFTER: " << henchmenCount << endl;
     }
     
 };
@@ -145,13 +143,19 @@ int main() {
                 cout << "Removed a Villain. Lair size: " << lair.size()
                      << endl << endl;
                 break;
-            case 4: // prints all of the Villains attributes to console
-                lair[0].printHeader(0);
-                for (Villain v : lair) {
-                    v.print();
+            case 4: { // prints all of the Villains attributes to console
+                if (lair.size() == 0) {
+                    cout << endl << "*** Lair Villains ***" << endl;
+                    cout << "The Lair is empty." << endl << endl;
+                } else {
+                    lair[0].printHeader(0);
+                    for (Villain v : lair) {
+                        v.print();
+                    }
+                    cout << endl;
                 }
-                cout << endl;
                 break;
+            }
             case 5: { // outputs all the Villains with capes
                 int capeHeader = 1, capeCount = 0;
                 lair[0].printHeader(1);
@@ -188,16 +192,22 @@ int main() {
             }
             case 7: { // recruits 3 henchmen for each Villain
                 int recruits = 3;
-                for (Villain v : lair) {
-                    v.recruitHenchmen(recruits);
+                for (int i = 0; i < lair.size(); i++) {
+                    lair[i].recruitHenchmen(recruits);
                 }
+                // The below code didn't work because v was only a copy
+                // I needed to index the objects instead to change their attributes
+                /*for (Villain v : lair) {
+                    v.recruitHenchmen(recruits);
+                }*/
                 cout << endl << "3 Henchmen recruited for each Villain." 
                      << endl << endl;
                 break;
             }
             case 8: // clears the Villain lair vector
                 lair.clear();
-                cout << endl << "Lair closed!" << endl << endl;
+                cout << endl << "The Lair has been closed with all Villains rehomed."
+                     << endl << endl;
                 break;
         }
         printMenu();
