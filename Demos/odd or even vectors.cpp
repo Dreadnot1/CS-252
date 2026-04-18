@@ -16,17 +16,25 @@ int main()
     //random seed
     srand(time(0));
     int even = 0, odd = 1;
+    bool status;
     
     vector<int> evens = getParityVector(SIZE, even);
     vector<int> odds = getParityVector(SIZE, odd);
     
+    // populating the vectors
     print_vector(evens, even);
     cout << endl;
     print_vector(odds, odd);
     
+    // validating the even vector
     cout << endl;
-    validate_vector(evens, even);
-    validate_vector(odds, odd);
+    status = validate_vector(evens, even);
+    cout << (status ? "PASS" : "FAIL");
+
+    // validating the odd vector
+    cout << endl;
+    status = validate_vector(odds, odd);
+    cout << (status ? "PASS" : "FAIL");
 
     return 0;
 }
@@ -38,19 +46,11 @@ vector<int> getParityVector(int size, int parity) {
     
     while (random_ints.size() < size) {
         random = rand() % (MAX - MIN + 1) + MIN;
-        
-        if (parity == 0) {
-            if (random % 2 == 0) {
-                random_ints.push_back(random);
-            } else {
-                continue;
-            }
-        } else if (parity == 1) {
-            if (random % 2 == 1) {
-                random_ints.push_back(random);
-            } else {
-                continue;
-            }
+
+        // parity determines whether vector is filled with odds or evens
+        // 0 adds evens, 1 adds odds
+        if (random % 2 == parity) {
+            random_ints.push_back(random);
         }
     }
     return random_ints;
@@ -70,34 +70,10 @@ void print_vector(vector<int> numbers, int parity) {
 
 //Checks if a vector contains all even or all odd numbers
 bool validate_vector(vector<int> numbers, int parity) {
-    bool is_validated;
-    int parity_check = 0;
-    
-    //checks first for even parity
-    if (parity == 0) {
-        for (auto num : numbers) {
-            if (num % 2 == 0) {
-                parity_check++;
-            } else {
-                parity_check--;
-            }
-        }       
-    } else {
-        for (auto num : numbers) {
-            if (num % 2 == 1) {
-                parity_check++;
-            } else {
-                parity_check--;
-            }
-        }           
+    for (auto num : numbers) {
+        if (num % 2 != parity) {
+            return false;
+        }
     }
-    
-    if (parity_check == numbers.size()) {
-        is_validated = true;
-        cout << "Vector check: " << "PASS" << endl;
-    } else {
-        is_validated = false;
-        cout << "Vector check: " << "FAIL" << endl;
-    }
-    return is_validated;
+    return true;
 }
