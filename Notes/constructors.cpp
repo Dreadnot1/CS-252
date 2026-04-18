@@ -6,8 +6,8 @@ const int W15 = 15;
 
 class Student {
 private:
-    double GPA;
     string name;
+    double GPA;
     int courseLoad;
 public:
     // default constructor
@@ -24,6 +24,11 @@ public:
         courseLoad = z;
     }
 
+    // partial constructor - go in order of declarations
+    Student(string n) {
+        name = n;
+    }
+
     // getters and setters
     double getGPA()              { return GPA; }
     void setGPA(double g)        { GPA = g; }
@@ -34,8 +39,8 @@ public:
 
     // other methods
     void print() {
-        cout << setw(W15) << "GPA: " << GPA << endl;
         cout << setw(W15) << "Name: " << name << endl;
+        cout << setw(W15) << "GPA: " << GPA << endl;
         cout << setw(W15) << "Course load: " << courseLoad << endl << endl;
     }
 };
@@ -64,6 +69,10 @@ int main() {
     // student 5
     Student morgan("Morgan", 4.05, 14);
     morgan.print();
+
+    // student 6
+    Student jason("Jason");
+    jason.print();
     
     return 0;
 }
