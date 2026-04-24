@@ -104,7 +104,7 @@ int menu() {
 // print() loops through a double-ended queue and outputs each string element
 // parameters: line, a constant reference to a deque
 // returns:    n/a
-void print(const deque<string> line) {
+void print(const deque<string> &line) {
     cout << "Customers in queue: ";
     if (line.empty()) {
         cout << "none";
