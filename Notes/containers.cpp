@@ -17,45 +17,16 @@ void mapSearch(const map<int, string>&, int);
 
 // Compare and contrast the difference between sequence and associative containers
 int main() {
-    // Student 1
-    Student student1;
-    student1.ID = 1;
-    student1.Name = "Amy";
-    
-    // Student 2
-    Student student2;
-    student2.ID = 2;
-    student2.Name = "Brad";
-    
-    // Student 3
-    Student student3;
-    student3.ID = 3;
-    student3.Name = "Charles";
-    
-    // Student 4
-    Student student4;
-    student4.ID = 4;
-    student4.Name = "Derrick";
-    
-    // Student 5
-    Student student5;
-    student5.ID = 5;
-    student5.Name = "Erica";
+    vector<Student> students = {{101, "Alice"}, {102, "Bob"}, {103, "Charles"}};
+    map<int, string> moreStudents = {{101, "Alice"}, {102, "Bob"}, {103, "Charles"}};
 
-    // Create a sequential vector of Students and search it for two IDs
-    vector<Student> students = {student1, student2, student3, student4, student5};
-    vectorSearch(students, 3);
-    vectorSearch(students, 6);
+    // Search a sequential vector for two IDs
+    vectorSearch(students, 103);
+    vectorSearch(students, 104);
     
-    // Create an associative map of Students and search it for Charles
-    map<int, string> moreStudents;
-    moreStudents[student1.ID] = student1.Name;
-    moreStudents[student2.ID] = student2.Name;
-    moreStudents[student3.ID] = student3.Name;
-    moreStudents[student4.ID] = student4.Name;
-    moreStudents[student5.ID] = student5.Name;
-    mapSearch(moreStudents, 3);
-    mapSearch(moreStudents, 6);
+    // Create an associative map and search it two IDs
+    mapSearch(moreStudents, 104);
+    mapSearch(moreStudents, 103);
     
     return 0;
 }
@@ -65,12 +36,15 @@ int main() {
 //         id, the struct member to search for
 // Return: none
 void vectorSearch(const vector<Student> &vec, int id) {
+    bool found;
     for (const auto &v : vec) {
         if (v.ID == id) {
             cout << "Found student " << v.Name 
                  << " with ID " << v.ID
                  << endl << endl;
-        } else {
+            found = true;
+            break;
+        } else if (!found) {
             cout << "Student not found with that ID number.\n" << endl;
         }
     }
