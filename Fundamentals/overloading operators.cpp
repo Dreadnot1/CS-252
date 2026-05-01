@@ -1,4 +1,3 @@
-// Lab 27: Operator Overloading | SP26 | Prof Deets
 #include <iostream>
 #include <iomanip>
 #include <string>

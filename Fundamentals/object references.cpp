@@ -1,4 +1,3 @@
-// Lab 28: Reference Variables | SP26 | Prof Deets
 #include <iostream>
 #include <iomanip>
 #include <list>
