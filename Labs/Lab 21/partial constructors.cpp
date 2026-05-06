@@ -1,5 +1,4 @@
 // CS 252 | Lab 21 Starter Code | Partial Constructors 
-// Spring 2026 | Prof Deets
 #include <iostream>
 #include <vector>
 using namespace std;

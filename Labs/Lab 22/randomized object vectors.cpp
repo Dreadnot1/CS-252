@@ -1,5 +1,4 @@
 // CS 252 | Lab 22 Starter Code | Lair of Villains I
-// Spring 2026 | Prof Deets
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>

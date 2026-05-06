@@ -1,5 +1,4 @@
 // CS 252 | Lab 24 | Lair of Villains III
-// Spring 2026 | Prof Deets
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
